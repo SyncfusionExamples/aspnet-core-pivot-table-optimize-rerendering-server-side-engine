@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@using Syncfusion.EJ2.PivotView
+
+<div class="control-section" style="overflow:auto">
+    <div class="content-wrapper">
+        @Html.EJS().PivotView("PivotView").Width("100%").Height("300").DataSourceSettings(dataSourceSettings => dataSourceSettings.Url("http://localhost:61379/api/pivot/post").Type(Syncfusion.EJ2.PivotView.DataSourceType.JSON).Mode(Syncfusion.EJ2.PivotView.RenderMode.Server).ExpandAll(false).EnableSorting(true)
+        .ValueSortSettings(new PivotViewValueSortSettings { HeaderDelimiter = "##" })
+        .Rows(rows => { rows.Name("ProductID").Caption("Product ID").Add(); }).Columns(columns => { columns.Name("Year").Caption("Production Year").Add(); })
+        .Values(values => { values.Name("Sold").Caption("Unit Sold").Add(); })).BeforeServiceInvoke("beforeServiceInvoke").ShowFieldList(true).AllowDataCompression(true).EnableVirtualization(true).Render()
+    </div>
+</div>
+
+<script>
+    function beforeServiceInvoke(args) {
+        args.hash = "7a410029-5c95-4fe9-89a0-95ca804291e3";
+    }
+</script>
