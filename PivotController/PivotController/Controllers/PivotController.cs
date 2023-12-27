@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
-using Syncfusion.EJ2.Pivot;
+using Syncfusion.Pivot.Engine;
 
 namespace PivotController.Controllers
 {
